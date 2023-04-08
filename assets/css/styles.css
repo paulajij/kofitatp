@@ -6,7 +6,7 @@
   --bold-font: 600;
   --bolder-font: 900;
   --primary-color: #000000;
-  --secondary-color: #1eb9cb;
+  --secondary-color: #1fc8db;
   --line-height: 1.7rem;
   --transition: 0.4s ease-in;
 }
@@ -73,3 +73,14 @@ nav {
   .nav-link {
     font-weight: var(--bold-font);
   }
+
+  .header {
+    color: #8cb0cf;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}
