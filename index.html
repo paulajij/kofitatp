@@ -226,14 +226,19 @@
     var stepNumber = 0;
   
     $(".next").click(function(){
+        
         stepNumber = stepNumber + 1;
 
         
+    //Formulario 1 
+    if(stepNumber == 1){
 
-      /*if($("#email").val() == ""){
-          alert("No completaste el email");
-          return 0;
-      }*/
+        if($("#email").val() == ""){
+            alert("No completaste el email");
+            $("#email").focus()
+            return 0;
+        }
+    }
       
       var email = $("#email").val()
       
