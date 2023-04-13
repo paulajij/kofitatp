@@ -155,40 +155,38 @@
       <div class="row">
           <div class="col-md-12">
               <div class="well well-sm">
-                  <form class="form-horizontal" method="post">
+                
+                  <form class="form-horizontal" method="post" id="formcontacto">
                       <fieldset>
                           <legend class="text-center header">Contacto</legend>
   
                           <div class="form-group">
-                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div id="errorMessages"></div>
                               <div class="col-md-8">
-                                  <input  id="fname" name="name" type="text" placeholder="Nombre" class="form-control">
+                                <label><i class="fa fa-user bigicon"> </i> Nombre y Apellido</label>
+                                <input  id="name" name="name" type="text" placeholder="Ingresa aquí tu nombre y apellido" class="form-control">
                               </div>
                           </div>
-                          <div class="form-group">
-                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                    
+  
+                          <div class="form-group">                              
                               <div class="col-md-8">
-                                  <input  id="lname" name="name" type="text" placeholder="Apellido" class="form-control">
+                                  <label><i class="fa fa-envelope-o bigicon"> </i> Correo Electrónico</label>
+                                  <input  id="email" name="email" type="text" placeholder="Ingresa aquí tu correo electrónico al cual responderemos tu consulta" class="form-control">
+                              </div>
+                          </div>
+  
+                          <div class="form-group">                              
+                              <div class="col-md-8">
+                                <label><i class="fa fa-phone-square bigicon"> </i> Teléfono</label>
+                                  <input  id="phone" name="phone"  type="text" placeholder="Ingresa aquí tu número de teléfono" class="form-control">
                               </div>
                           </div>
   
                           <div class="form-group">
-                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                              
                               <div class="col-md-8">
-                                  <input  id="email" name="email" type="text" placeholder="Email" class="form-control">
-                              </div>
-                          </div>
-  
-                          <div class="form-group">
-                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                              <div class="col-md-8">
-                                  <input  id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control">
-                              </div>
-                          </div>
-  
-                          <div class="form-group">
-                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                              <div class="col-md-8">
+                                <label><i class="fa fa-pencil-square-o bigicon"> </i> Consulta</label>
                                   <textarea class="form-control" id="message" name="message" placeholder="Escriba aquí su mensaje para nosotros. Nos pondremos en contacto con usted dentro de 2 días hábiles." rows="7"></textarea>
                               </div>
                           </div>
@@ -199,10 +197,13 @@
                               </div>
                           </div>
                       </fieldset>
+                      
                   </form>
               </div>
           </div>
       </div>
+      <p id="weather-info"></p>
+      <p id="temperature"></p>
   </div>
     <!-- Formulario de Producto -->
 
@@ -441,6 +442,101 @@ function generatePDF(email, uname, fname, lname, phno, phno_2, direccion, ciudad
             return (false)
         }
         
+
+
+     document.getElementById('formcontacto').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var constraints = {
+        name: {
+          presence: {
+            message: "Por favor, ingrese su nombre."
+          }
+        },
+        email: {
+          presence: {
+            message: "Por favor, ingrese su correo electrónico."
+          },
+          email: {
+            message: "Por favor, ingrese una dirección de correo electrónico válida."
+          }
+        },
+        phone: {
+          presence: {
+            message: "Por favor, ingrese su contraseña."
+          },
+          length: {
+            minimum: 7,
+            tooShort: "El teléfono debe ser válido."
+          }
+        },
+        message: {
+          presence: {
+            message: "Por favor complete el mensaje."
+          },
+          length: {
+            minimum: 20,
+            tooShort: "Por favor escriba un mensaje detallado."
+          }
+        }
+      };
+      var formValues = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+      };
+      var errors = validate(formValues, constraints);
+      if (errors) {
+        // Mostrar mensajes de error en el formulario
+        var errorHTML = '';
+        for (var field in errors) {
+          if (errors.hasOwnProperty(field)) {
+            errorHTML += '\n' + errors[field][0] + '';
+          }
+        }
+        //document.getElementById('errorMessages').innerHTML = errorHTML;
+        alert(errorHTML);
+      } else {
+        // Enviar formulario si no hay errores
+        document.getElementById('errorMessages').innerHTML = '';
+        document.getElementById('registroForm').submit();
+      }
+    });
+
+    var lat = -34.6091;
+    var lon = -58.4208;
+
+    // Realiza una llamada a la API de OpenWeatherMap
+    $.ajax({
+        url: 'https://api.openweathermap.org/data/2.5/weather',
+        dataType: 'json',
+        data: {
+            lat: lat,
+            lon: lon,
+            appid: 'f8fa6da234451c4e59d17494278f6b75', // Reemplaza con tu propia API key
+            units: 'metric' // Unidades de temperatura en Celsius
+        },
+        success: function(data) {
+            // Procesa la respuesta de la API
+            var weatherInfo = data.weather[0].description;
+            var temperature = data.main.temp;
+
+            // Actualiza los elementos HTML con la información del clima
+            $('#weather-info').text('Clima: ' + weatherInfo);
+            $('#temperature').text('Temperatura: ' + temperature + '°C');
+        },
+        error: function() {
+            // Maneja errores en caso de que la llamada a la API falle
+            console.log('Error al obtener datos del clima');
+        }
+    });
+
+// Obtén la ubicación del usuario (por ejemplo, mediante el uso del API de geolocalización del navegador)
+//navigator.geolocation.getCurrentPosition(function(position) {
+    // Obtén las coordenadas geográficas del usuario
+    
+//});
+
     </script>
   </body>
 </html>
