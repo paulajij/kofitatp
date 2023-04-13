@@ -10,8 +10,11 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Kofita</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <!-- Navbar -->
@@ -81,10 +84,10 @@
                       <form id="msform">
                           <!-- progressbar -->
                           <ul id="progressbar">
-                              <li class="active" id="account"><strong>Cuenta Kofita</strong></li>
-                              <li id="personal"><strong>Información Personal</strong></li>
-                              <li id="envio"><strong>Información de Envío</strong></li>
-                              <li id="confirm"><strong>Fin</strong></li>
+                             <li class="active" id="account"><strong>Cuenta Kofita</strong></li>
+                             <li id="personal"><strong>Información Personal</strong></li>
+                             <li id="envio"><strong>Información de Envío</strong></li>
+                             <li id="confirm"><strong>Fin</strong></li>
                           </ul>
                           <!-- fieldsets -->
                           <fieldset>
@@ -92,9 +95,9 @@
                                   <h2 class="fs-title">Cuenta Kofita</h2>
                                   
                                     <input type="email" name="email" id="email" placeholder="Email"/>
-                                    <input type="text" name="uname" placeholder="Nombre de Usuario"/>
-                                    <input type="password" name="pwd" placeholder="Contraseña"/>
-                                    <input type="password" name="cpwd" placeholder="Confirmar Contraseña"/>
+                                    <input type="text" name="uname"  id="uname"  placeholder="Nombre de Usuario"/>
+                                    <input type="password" name="pwd"  id="pwd"  placeholder="Contraseña"/>
+                                    <input type="password" name="cpwd"  id="cpwd"  placeholder="Confirmar Contraseña"/>
                                   
                               </div>
                               <input type="button" name="next" class="next action-button" value="Siguiente"/>
@@ -102,10 +105,10 @@
                           <fieldset>
                               <div class="form-card">
                                   <h2 class="fs-title">Información Personal</h2>
-                                  <input type="text" name="fname" placeholder="Nombres"/>
-                                  <input type="text" name="lname" placeholder="Apellido"/>
-                                  <input type="text" name="phno" placeholder="Teléfono Fijo"/>
-                                  <input type="text" name="phno_2" placeholder="Teléfono Móvil"/>
+                                  <input type="text" name="fname"  id="fname"  placeholder="Nombres"/>
+                                  <input type="text" name="lname"  id="lname"  placeholder="Apellido"/>
+                                  <input type="text" name="phno"  id="phno"  placeholder="Teléfono Fijo"/>
+                                  <input type="text" name="phno_2"  id="phno_2"  placeholder="Teléfono Móvil"/>
                               </div>
                               <input type="button" name="previous" class="previous action-button-previous" value="Anterior"/>
                               <input type="button" name="next" class="next action-button" value="Siguiente"/>
@@ -113,11 +116,11 @@
                           <fieldset>
                             <div class="form-card">
                                 <h2 class="fs-title">Información de Envío</h2>
-                                <input type="text" name="direccion" placeholder="Dirección"/>
-                                <input type="text" name="ciudad" placeholder="Ciudad"/>
-                                <input type="text" name="provincia" placeholder="Provincia"/>
-                                <input type="text" name="cp" placeholder="Código Postal"/>
-                                <input type="text" name="pais" placeholder="País"/>
+                                <input type="text" name="direccion" id="direccion" placeholder="Dirección"/>
+                                <input type="text" name="ciudad" id="ciudad"  placeholder="Ciudad"/>
+                                <input type="text" name="provincia" id="provincia"  placeholder="Provincia"/>
+                                <input type="text" name="cp" id="cp" placeholder="Código Postal"/>
+                                <input type="text" name="pais" id="pais" placeholder="País"/>
                             </div>
                             <input type="button" name="previous" class="previous action-button-previous" value="Anterior"/>
                             <input type="button" id="ultimo_boton" name="next" class="next action-button" value="Finalizar"/>
@@ -236,15 +239,102 @@
         if($("#email").val() == ""){
             alert("No completaste el email");
             $("#email").focus()
+            stepNumber = stepNumber - 1
+            return false;
+        }else{
+            var esEmail = ValidateEmail($("#email").val()); 
+            if(esEmail == false){
+                alert("No es un email válido");
+                $("#email").focus()
+                stepNumber = stepNumber - 1
+                return false;
+            } 
+        }
+
+
+        if($("#uname").val() == ""){
+            alert("No completaste el nombre de usuario");
+            $("#uname").focus()
+            stepNumber = stepNumber - 1
+            return false;
+        }
+        if($("#pwd").val() == ""){
+            alert("No completaste la contraseña");
+            $("#pwd").focus()
+            stepNumber = stepNumber - 1
+            return false;
+        }
+        if ($("#pwd").val() !=  $("#cpwd").val()){
+            alert("No coincide la contraseña");
+            $("#cpwd").focus()
+            stepNumber = stepNumber - 1
+            return false;
+        }
+
+    }
+
+    //Formulario 2
+    if(stepNumber == 2){
+
+        if($("#fname").val() == ""){
+            alert("No completaste el nombre ");
+            $("#fname").focus()
+            stepNumber = stepNumber - 1
+            return 0;
+        }
+        if($("#lname").val() == ""){
+            alert("No completaste el apellido ");
+            $("#lname").focus()
+            stepNumber = stepNumber - 1
+            return 0;
+        }
+        if($("#phno").val() == ""){
+            alert("No completaste el teléfono fijo ");
+            $("#phno").focus()
+            stepNumber = stepNumber - 1
+            return 0;
+        }
+        if($("#phno_2").val() == ""){
+            alert("No completaste el teléfono móvil ");
+            $("#phno_2").focus()
+            stepNumber = stepNumber - 1
             return 0;
         }
     }
+
+    //Formulario 3
+    if(stepNumber == 3){
+
+        if($("#ciudad").val() == ""){
+            alert("No completaste la ciudad ");
+            $("#ciudad").focus()
+            stepNumber = stepNumber - 1
+            return 0;
+        }
+        if($("#provincia").val() == ""){
+            alert("No completaste la provincia o estado ");
+            $("#provincia").focus()
+            stepNumber = stepNumber - 1
+            return 0;
+        }
+        if($("#cp").val() == ""){
+            alert("No completaste el código postal ");
+            $("#cp").focus()
+            stepNumber = stepNumber - 1
+            return 0;
+        }
+        if($("#pais").val() == ""){
+            alert("No completaste el país ");
+            $("#país").focus()
+            stepNumber = stepNumber - 1
+            return 0;
+        }
+    
+    } 
       
       var email = $("#email").val()
-      
       var uname = $("#uname").val()
       var pwd = $("#pwd").val()
-
       var fname = $("#fname").val()
       var lname = $("#lname").val()
       var phno = $("#phno").val()
@@ -255,9 +345,9 @@
       var cp = $("#cp").val()
       var pais = $("#pais").val()
       
-      if(stepNumber == 3){
+    if(stepNumber == 3){
         generatePDF(email, uname, fname, lname, phno, phno_2, direccion, ciudad, provincia, cp, pais)
-      }
+    }
         
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
@@ -321,15 +411,36 @@
     $(".submit").click(function(){
         return false;
     })
-        
-    });
 
-    function generatePDF(email, uname, fname, lname, phno, phno_2, direccion, ciudad, provincia, cp, pais) {
+});
+
+function generatePDF(email, uname, fname, lname, phno, phno_2, direccion, ciudad, provincia, cp, pais) {
 			const { jsPDF } = window.jspdf;
 			const doc = new jsPDF();
 			doc.text("Email: " + email, 10, 10);
+            doc.text("Usuario: " + uname, 10, 30);
+            doc.text("Nombre(s): " + fname, 10, 50);
+            doc.text("Apellido(s): " + lname, 10, 70);
+            doc.text("Tel: " + phno, 10, 90);
+            doc.text("Cel: " + phno_2, 10, 110);
+            doc.text("Dirección: " + direccion, 10, 130);
+            doc.text("Ciudad: " + ciudad, 10, 150);
+            doc.text("Provincia o Estado: " + provincia, 10, 170);
+            doc.text("Código Postal: " + cp, 10, 190);
+            doc.text("País: " + phno_2, 10, 210);
 			doc.save("comprobante_registro.pdf");			
 		}	
+
+        function ValidateEmail(mail) 
+        {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+        {
+            return (true)
+        }
+            //alert("You have entered an invalid email address!")
+            return (false)
+        }
+        
     </script>
   </body>
 </html>
