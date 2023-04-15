@@ -25,7 +25,7 @@ html {
 }
 
  body {
-  font-family: "Roboto", sans-serf;
+  font-family: "Arial", sans-serf;
 }
 
 ul li {
@@ -42,22 +42,24 @@ a:hover {
 } 
 
 nav {
-    background: #fff;
+    background: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
-    box-shadow: 2px 3px 2px #f1f1f1;
+    box-shadow: 1px 1px 1px #000000;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1;
   }
 
+  /*
   .logo {
     font-size: 2rem;
     font-weight: 500;
   }
+  */
   
   ul {
     display: flex;
@@ -156,26 +158,28 @@ html {
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
-  font-family: montserrat;
+  font-family: sans-serif;
   color: #2C3E50;
   font-size: 16px;
   letter-spacing: 1px;
 }
-
+#logo {
+  height: 50px;
+}
 #msform input:focus, #msform textarea:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border: none;
   font-weight: bold;
-  border-bottom: 2px solid skyblue;
+  border-bottom: 2px solid #000;
   outline-width: 0;
 }
 
 /*Blue Buttons*/
 #msform .action-button {
   width: 100px;
-  background: skyblue;
+  background: #000;
   font-weight: bold;
   color: white;
   border: 0 none;
@@ -186,7 +190,7 @@ html {
 }
 
 #msform .action-button:hover, #msform .action-button:focus {
-  box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #000;
 }
 
 /*Previous Buttons*/
@@ -216,7 +220,7 @@ select.list-dt {
 }
 
 select.list-dt:focus {
-  border-bottom: 2px solid skyblue;
+  border-bottom: 2px solid #000;
 }
 
 /*The background card*/
@@ -304,7 +308,7 @@ select.list-dt:focus {
 
 /*Color number of the step and the connector before it*/
 #progressbar li.active:before, #progressbar li.active:after {
-  background: skyblue;
+  background: #000;
 }
 
 /*Imaged Radio Buttons*/
@@ -337,4 +341,25 @@ select.list-dt:focus {
 .fit-image{
   width: 100%;
   object-fit: cover;
+}
+
+.custom-hint {
+  color: #f3f0f0; /* Cambia el color del texto del hint a rojo */
+}
+
+.gallery img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+.modal-description {
+  margin-top: 5px;
+  font-size: 16px;
 }

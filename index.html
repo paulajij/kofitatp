@@ -11,35 +11,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Kofita</title>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
   </head>
   <body>
+    <div class="fluid-container">
     <!-- Navbar -->
-    <nav>
-        <a href="#" class="logo">
-          <h1>
-            <span class="kof">Kofita</span>            
-          </h1>
-        </a>
-        <ul>
-            <li class="nav-item">
-              <a href="#presentacion" class="nav-link" id="nav-link">Presentación</a>
-            </li>
-            <li class="nav-item">
-              <a href="#stars" class="nav-link" id="nav-link">Formulario de contacto</a>
-            </li>
-            <li class="nav-item">
-              <a href="#stakeholders" class="nav-link" id="nav-link"
-                >Solicitar Producto</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><img id="logo" src="assets/images/logo-negativo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#presentacion">Presentación</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#suscripcion">Suscripción</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
 
-    </nav>    
+    
     <!-- Presentacion -->
     <section class="presentacion" id="presentacion">
+      
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -70,10 +78,67 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+      
+
+      <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-10 text-left p-0 mt-3 mb-2">                              
+          
+            <h2 class="text-center"><strong>Presentación</strong></h2>
+            
+            <p >
+              KOFITA es una marca sustentable, seleccionamos cuidadosamente nuestras telas y proveedores. Todas nuestras prendas son hechas a mano.
+              Somos un espacio de creatividad, diversidad  e inspiración. </p>
+              <p>Cada pieza es hecha a pedido especialmente para vos.</p>
+              <p>Hacemos envíos internacionales.</p>
+              
+          
+        </div>
+      </div>
     </section>
 
+    <section id="galeria">
+      <div class="container mt-5">
+        <div class="row gallery">
+          <div class="col-md-4">
+            <a href="assets/images/f1.jpeg" title="Pulsera turquesa, coral y baño de oro" data-description="" class="gallery-link">
+              <img src="assets/images/f1.jpeg" alt="Foto 1">
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="assets/images/f2.jpeg" title="Foto 2" data-description="Descripción de la foto 2" class="gallery-link">
+              <img src="assets/images/f2.jpeg" alt="Foto 2">
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="assets/images/f3.jpeg" title="Foto 3" data-description="Descripción de la foto 3" class="gallery-link">
+              <img src="assets/images/f3.jpeg" alt="Foto 3">
+            </a>
+          </div>
+        </div>
+
+        <div class="row gallery">
+          <div class="col-md-4 mt-5">
+            <a href="assets/images/f4.jpeg" title="Pulsera turquesa, coral y baño de oro" data-description="" class="gallery-link">
+              <img src="assets/images/f4.jpeg" alt="Foto 1">
+            </a>
+          </div>
+          <div class="col-md-4 mt-5">
+            <a href="assets/images/f5.jpeg" title="Foto 2" data-description="Descripción de la foto 2" class="gallery-link">
+              <img src="assets/images/f5.jpeg" alt="Foto 2">
+            </a>
+          </div>
+          <div class="col-md-4 mt-5">
+            <a href="assets/images/f6.jpeg" title="Foto 3" data-description="Descripción de la foto 3" class="gallery-link">
+              <img src="assets/images/f6.jpeg" alt="Foto 3">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
 <!-- Wizard -->
-<div class="container-fluid" id="grad1">
+<section id="suscripcion">
   <div class="row justify-content-center mt-0">
       <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
@@ -127,17 +192,30 @@
                         </fieldset>
                           <fieldset>
                               <div class="form-card">
-                                  <h2 class="fs-title text-center">Genial !</h2>
+                                  <h2 class="fs-title text-center">Resumen de Tu Registro</h2>
                                   <br><br>
                                   <div class="row justify-content-center">
-                                      <div class="col-3">
-                                          <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                                      <div class="col-9">
+                                        <div id="resumen_email"></div>
+                                        <div id="resumen_usuario"></div>
+                                        <div id="resumen_nombres"></div>
+                                        <div id="resumen_apellido"></div>
+                                        <div id="resumen_telefonofijo"></div>
+                                        <div id="resumen_telefonomovil"></div>
+                                        <div id="resumen_direccion"></div>                                        
+                                        <div id="resumen_ciudad"></div>
+                                        <div id="resumen_provincia"></div>
+                                        <div id="resumen_codigopostal"></div>
+                                        <div id="resumen_pais"></div>
+
+                                          <!--<img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">-->
                                       </div>
                                   </div>
                                   <br><br>
                                   <div class="row justify-content-center">
                                       <div class="col-7 text-center">
-                                          <h5>Te has registrado exitosamente en Kofita!</h5>
+                                          <!--<h5>Te has registrado exitosamente en Kofita!</h5>-->
+                                          <input type="button" name="next" class="next action-button" value="PDF"/>
                                       </div>
                                   </div>
                               </div>
@@ -148,63 +226,66 @@
           </div>
       </div>
   </div>
-</div>
+</section>
 
-    <!-- Formulario de Contacto -->
-    <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="well well-sm">
-                
+
+    <section class="contacto" id="contacto">
+
+      <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-left p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                   <form class="form-horizontal" method="post" id="formcontacto">
-                      <fieldset>
-                          <legend class="text-center header">Contacto</legend>
+                      
+                        <h2 class="text-center"><strong>Envíenos un Mensaje</strong></h2>
+                        <p></p>
   
                           <div class="form-group">
                             <div id="errorMessages"></div>
-                              <div class="col-md-8">
-                                <label><i class="fa fa-user bigicon"> </i> Nombre y Apellido</label>
-                                <input  id="name" name="name" type="text" placeholder="Ingresa aquí tu nombre y apellido" class="form-control">
+                              <div class="col-md-12">
+                                <label><i class="fa fa-user bigicon text-secondary" > </i> Nombre y Apellido</label>
+                                <input  id="namecontact" name="namecontact" type="text" placeholder="" class="form-control">
                               </div>
                           </div>
                     
   
                           <div class="form-group">                              
-                              <div class="col-md-8">
-                                  <label><i class="fa fa-envelope-o bigicon"> </i> Correo Electrónico</label>
-                                  <input  id="email" name="email" type="text" placeholder="Ingresa aquí tu correo electrónico al cual responderemos tu consulta" class="form-control">
+                              <div class="col-md-12">
+                                  <label><i class="fa fa-envelope-o bigicon text-secondary"> </i> Correo Electrónico</label>
+                                  <input  id="emailcontact" name="emailcontact" type="text" placeholder="" class="form-control custom-hint">
                               </div>
                           </div>
   
                           <div class="form-group">                              
-                              <div class="col-md-8">
-                                <label><i class="fa fa-phone-square bigicon"> </i> Teléfono</label>
-                                  <input  id="phone" name="phone"  type="text" placeholder="Ingresa aquí tu número de teléfono" class="form-control">
+                              <div class="col-md-12">
+                                <label><i class="fa fa-phone-square bigicon text-secondary"> </i> Teléfono</label>
+                                  <input  id="phonecontact" name="phonecontact"  type="text" placeholder="" class="form-control">
                               </div>
                           </div>
   
                           <div class="form-group">
                               
-                              <div class="col-md-8">
-                                <label><i class="fa fa-pencil-square-o bigicon"> </i> Consulta</label>
-                                  <textarea class="form-control" id="message" name="message" placeholder="Escriba aquí su mensaje para nosotros. Nos pondremos en contacto con usted dentro de 2 días hábiles." rows="7"></textarea>
+                              <div class="col-md-12">
+                                <label><i class="fa fa-pencil-square-o bigicon text-secondary"> </i> Consulta</label>
+                                  <textarea class="form-control text-light" id="messagecontact" name="messagecontact" placeholder="Ingrese su consulta aquí" rows="7"></textarea>
                               </div>
                           </div>
   
                           <div class="form-group">
                               <div class="col-md-12 text-center">
-                                  <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                  <button type="submit" class="btn btn-dark btn-lg">Enviar</button>
                               </div>
                           </div>
-                      </fieldset>
+                      
                       
                   </form>
-              </div>
+             
           </div>
+        </div>
       </div>
-      <p id="weather-info"></p>
-      <p id="temperature"></p>
-  </div>
+    </section>
+      <!--<p id="weather-info"></p>-->
+      
+ 
     <!-- Formulario de Producto -->
 
     <!-- Social icons -->
@@ -330,6 +411,8 @@
             stepNumber = stepNumber - 1
             return 0;
         }
+
+
     
     } 
       
@@ -345,15 +428,32 @@
       var provincia = $("#provincia").val()
       var cp = $("#cp").val()
       var pais = $("#pais").val()
+    
+      if(stepNumber == 3){
+        
+        
+
+        $("#resumen_email").html("Correo Electrónico: "+ email)
+        $("#resumen_usuario").html("Usuario: "+ uname)
+        $("#resumen_nombres").html("Nombres: "+ fname)
+        $("#resumen_apellido").html("Apellido: "+ lname)
+        $("#resumen_telefonofijo").html("Teléfono Fijo: "+ phno)
+        $("#resumen_telefonomovil").html("Teléfono Móvil: "+ phno_2)
+        $("#resumen_direccion").html("Dirección: "+ direccion)
+        $("#resumen_ciudad").html("Ciudad: "+ ciudad)
+        $("#resumen_provincia").html("Provincia: "+ provincia)
+        $("#resumen_codigopostal").html("CP: "+ cp)
+        $("#resumen_pais").html("País: "+ pais)
+      }
       
-    if(stepNumber == 3){
+    if(stepNumber == 4){
         generatePDF(email, uname, fname, lname, phno, phno_2, direccion, ciudad, provincia, cp, pais)
     }
         
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
 
-        //alert( $("#ultimo_boton").val())
+        
         //Add Class Active
         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
         
@@ -447,51 +547,61 @@ function generatePDF(email, uname, fname, lname, phno, phno_2, direccion, ciudad
      document.getElementById('formcontacto').addEventListener('submit', function(event) {
       event.preventDefault();
       var constraints = {
-        name: {
+        namecontact: {
           presence: {
-            message: "Por favor, ingrese su nombre."
+            message: "-Por favor, ingrese su nombre."
           }
         },
-        email: {
+        emailcontact: {
           presence: {
-            message: "Por favor, ingrese su correo electrónico."
+            message: "- Por favor, ingrese su correo electrónico."
           },
           email: {
-            message: "Por favor, ingrese una dirección de correo electrónico válida."
+            message: "- Por favor, ingrese una dirección de correo electrónico válida."
           }
         },
-        phone: {
+        phonecontact: {
           presence: {
-            message: "Por favor, ingrese su contraseña."
+            message: "- Por favor, ingrese su contraseña."
           },
           length: {
             minimum: 7,
-            tooShort: "El teléfono debe ser válido."
+            tooShort: "- El teléfono debe ser válido."
           }
         },
-        message: {
+        messagecontact: {
           presence: {
-            message: "Por favor complete el mensaje."
+            message: "- Por favor complete el mensaje."
           },
           length: {
             minimum: 20,
-            tooShort: "Por favor escriba un mensaje detallado."
+            tooShort: "- Por favor escriba un mensaje detallado."
           }
         }
       };
+      // Definir los formatters de mensajes de error
+
       var formValues = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
+        namecontact: document.getElementById('namecontact').value,
+        emailcontact: document.getElementById('emailcontact').value,
+        phonecontact: document.getElementById('phonecontact').value,
+        messagecontact: document.getElementById('messagecontact').value
       };
+
       var errors = validate(formValues, constraints);
       if (errors) {
         // Mostrar mensajes de error en el formulario
         var errorHTML = '';
         for (var field in errors) {
           if (errors.hasOwnProperty(field)) {
-            errorHTML += '\n' + errors[field][0] + '';
+            //alert(JSON.stringify(errors));
+            //Obtengo la posicion del guion
+            var cadenaTexto = ""
+            var cadenaTexto = errors[field][0]
+            var caracterBuscado = "-"
+            var posicion = cadenaTexto.toLowerCase().indexOf(caracterBuscado.toLowerCase());
+            var subcadena = cadenaTexto.substring(posicion, cadenaTexto.length);
+            errorHTML += '\n'+ subcadena + '';
           }
         }
         //document.getElementById('errorMessages').innerHTML = errorHTML;
@@ -538,5 +648,64 @@ function generatePDF(email, uname, fname, lname, phno, phno_2, direccion, ciudad
 //});
 
     </script>
+
+</div>
+    
+
+  <footer class="bg-dark text-white py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          
+          <p> &copy; 2023 Kofita. Todos los derechos reservados.<br>¡Síguenos en redes sociales!</p>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-inline text-right">
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f  text-white"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/" target="_blank" title="Twitter">
+                <i class="fab fa-twitter  text-white"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/kofita.official" target="_blank" title="Instagram">
+                <i class="fab fa-instagram text-white"></i>
+              </a>
+            </li>           
+            <!-- Agrega más iconos de redes sociales según tus necesidades -->
+          </ul>
+          
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+             <p id="temperature"></p>
+          </div>
+      </div>
+     
+    </div>
+  </footer>
+   <!-- Scripts de Bootstrap -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <!-- Script de Magnific Popup -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script>
+ $(document).ready(function() {
+      // Inicializar el plugin Magnific Popup
+      $('.gallery-link').magnificPopup({
+        type: 'image',
+        gallery: {
+          enabled: true
+        },
+        titleSrc: 'data-description' // Usar el atributo "data-description" como título de la imagen
+      });
+    });
+  </script>
   </body>
 </html>
